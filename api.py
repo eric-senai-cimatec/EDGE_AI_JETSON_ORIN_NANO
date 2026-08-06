@@ -6,7 +6,7 @@ from starlette.responses import StreamingResponse, HTMLResponse
 import threading
 
 # Carregar o modelo treinado
-model = YOLO(r"runs\detect\train\weights\best.pt")
+model = YOLO("runs/detect/train/weights/best.pt")
 
 app = FastAPI()
 
@@ -46,7 +46,7 @@ def gen_frames():
 
 @app.get('/', response_class=HTMLResponse)
 def index():
-    return "<html><body><h3>Inspeção de segurança com IA - Stream</h3><img src='/video_feed' width='720' /></body></html>"
+    return "<html><body><h3>Inspeção de segurança com IA - Stream</h3><img src='/video_feed' width='1280' /></body></html>"
 
 
 @app.get('/video_feed')
